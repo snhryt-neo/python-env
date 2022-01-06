@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  shell:
+    image: snhryt/workspace-python3
+    container_name: remote-workspace-python3
+    build: ./
+    user: root
+    ports:
+      - 8888:8888
+      - 8501:8501
+      - 8502:8502
+      - 8503:8503
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - ./:/workdir
+    working_dir: /workdir
+    restart: unless-stopped
+    tty: true
